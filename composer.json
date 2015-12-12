@@ -1,0 +1,16 @@
+{
+    "name": "ericmartel/codeception-email",
+    "description": "Provides test helpers for Codeception when testing email functionality",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric Martel",
+            "email": "emartel@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Codeception\\Module\\": "src"
+        }
+    }
+}
