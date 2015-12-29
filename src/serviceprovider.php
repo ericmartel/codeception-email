@@ -19,7 +19,10 @@ trait EmailServiceProvider
    *
    * @return array Current Inbox
    */
-  protected function getCurrentInbox() { }
+  protected function getCurrentInbox() 
+  {
+    $this->fail("Service Provider doesn't implement getCurrentInbox");
+  }
 
   /**
    * Get Unread Inbox
@@ -28,7 +31,10 @@ trait EmailServiceProvider
    *
    * @return array Unread Inbox
    */
-  protected function getUnreadInbox() { }
+  protected function getUnreadInbox()
+  {
+    $this->fail("Service Provider doesn't implement getUnreadInbox");
+  }
 
   /**
    * Get Opened Email
@@ -38,7 +44,10 @@ trait EmailServiceProvider
    * @param bool $fetchNextUnread Goes to the next Unread Email
    * @return mixed Returns a JSON encoded Email
    */
-  protected function getOpenedEmail($fetchNextUnread = FALSE) {  }
+  protected function getOpenedEmail($fetchNextUnread = FALSE)
+  {
+    $this->fail("Service Provider doesn't implement getOpenedEmail");
+  }
 
   /**
    * Get Email Body
@@ -48,7 +57,10 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string Body
    */
-  protected function getEmailBody($email) { }
+  protected function getEmailBody($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailBody");
+  }
 
   /**
    * Get Email Subject
@@ -58,7 +70,10 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string Subject
    */
-  protected function getEmailSubject($email) { }
+  protected function getEmailSubject($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailSubject");
+  }
 
   /**
    * Get Email Sender
@@ -68,7 +83,10 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string Sender
    */
-  protected function getSender($email) { }
+  protected function getSender($email)
+  {
+    $this->fail("Service Provider doesn't implement getSender");
+  }
 
   /**
    * Get Email To
@@ -78,7 +96,10 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string To
    */
-  protected function getEmailTo($email) { }
+  protected function getEmailTo($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailTo");
+  }
 
   /**
    * Get Email CC
@@ -88,7 +109,10 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string CC
    */
-  protected function getEmailCC($email) { }
+  protected function getEmailCC($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailCC");
+  }
 
   /**
    * Get Email BCC
@@ -98,7 +122,10 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string BCC
    */
-  protected function getEmailBCC($email) { }
+  protected function getEmailBCC($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailBCC");
+  }
 
   /**
    * Get Email Recipients
@@ -108,5 +135,8 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string Recipients
    */
-  protected function getEmailRecipients($email) { }
+  protected function getEmailRecipients($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailRecipients");
+  }
 }
