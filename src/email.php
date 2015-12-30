@@ -15,7 +15,6 @@ use Codeception\Module;
 // todo:
 // text & html content
 // attachments
-// priority
 
 trait TestsEmails
 {
@@ -244,6 +243,58 @@ trait TestsEmails
   }
 
   /**
+   * See In Opened Email Reply To
+   * 
+   * Checks if the ReplyTo of the opened email contains $expected
+   * 
+   * @param string $expected Text
+   */
+  public function seeInOpenedEmailReplyTo($expected)
+  {
+    $email = $this->getOpenedEmail();
+    $this->seeInEmailReplyTo($email, $expected);
+  }
+
+  /**
+   * Dont See In Opened Email Reply To
+   * 
+   * Checks if the ReplyTo of the opened email does not contain $expected
+   * 
+   * @param string $expected Text
+   */
+  public function dontSeeInOpenedEmailReplyTo($expected)
+  {
+    $email = $this->getOpenedEmail();
+    $this->dontSeeInEmailReplyTo($email, $expected);
+  }
+
+  /**
+   * See In Email Reply To
+   * 
+   * Checks if the ReplyTo of $email contains $expected
+   * 
+   * @param mixed $email a JSON encoded email
+   * @param string $expected Text
+   */
+  public function seeInEmailReplyTo($email, $expected)
+  {
+    $this->assertContains($expected, $this->getEmailReplyTo($email));
+  }
+
+  /**
+   * Dont See In Email Reply To
+   * 
+   * Checks if the ReplyTo of $email does not contain $expected
+   * 
+   * @param mixed $email a JSON encoded email
+   * @param string $expected Text
+   */
+  public function dontSeeInEmailReplyTo($email, $expected)
+  {
+    $this->assertNotContains($expected, $this->getEmailReplyTo($email));
+  }
+
+  /**
    * See In Opened Email Recipients
    * 
    * Checks that the recipients of the opened email contain $expected
@@ -457,5 +508,57 @@ trait TestsEmails
   public function dontSeeInEmailBCCField($email, $expected)
   {
     $this->assertNotContains($expected, $this->getEmailBCC($email));
+  }
+
+  /**
+   * See In Opened Email Priority
+   * 
+   * Checks that the priority of the opened email contains $expected
+   * 
+   * @param string $expected priority
+   */
+  public function seeInOpenedEmailPriority($expected)
+  {
+    $email = $this->getOpenedEmail();
+    $this->seeInEmailPriority($email, $expected);
+  }
+
+  /**
+   * Dont See In Opened Email Priority
+   * 
+   * Checks that the priority of the opened email does not contain $expected
+   * 
+   * @param string $expected priority
+   */
+  public function dontSeeInOpenedEmailPriority($expected)
+  {
+    $email = $this->getOpenedEmail();
+    $this->dontSeeInEmailPriority($email, $expected);
+  }
+
+  /**
+   * See In Email Priority
+   * 
+   * Checks that the priority of $email contains $expected
+   * 
+   * @param mixed $email a JSON encoded email
+   * @param string $expected priority
+   */ 
+  public function seeInEmailPriority($email, $expected)
+  {
+    $this->assertContains($expected, $this->getEmailPriority($email));
+  }
+
+  /**
+   * Dont See In Email Priority
+   * 
+   * Checks that the priority of $email does not contain $expected
+   * 
+   * @param mixed $email a JSON encoded email
+   * @param string $expected priority
+   */
+  public function dontSeeInEmailPriority($email, $expected)
+  {
+    $this->assertNotContains($expected, $this->getEmailPriority($email));
   }
 };

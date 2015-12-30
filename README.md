@@ -81,6 +81,22 @@ dontSeeInEmailSender($email, $expected)
 ```
 Checks if the sender of $email does not contain $expected
 ```
+seeInOpenedEmailReplyTo($expected)
+```
+Checks if the ReplyTo of the opened email contains $expected
+```
+dontSeeInOpenedEmailReplyTo($expected)
+```
+Checks if the ReplyTo of the opened email does not contain $expected
+```
+seeInEmailSender($email, $expected)
+```
+Checks if the ReplyTo of $email contains $expected
+```
+dontSeeInEmailReplyTo($email, $expected)
+```
+Checks if the ReplyTo of $email does not contain $expected
+```
 seeInOpenedEmailRecipients($expected)
 ```
 Checks that the recipients of the opened email contain $expected
@@ -195,13 +211,29 @@ Returns the string containing the persons included in the BCC field
 getEmailRecipients($email)
 ```
 Returns the string containing all of the recipients, such as To, CC and if provided BCC
+```
+seeInOpenedEmailPriority($expected)
+```
+Checks that the priority of the opened email is $expected
+```
+dontSeeInOpenedEmailPriority($expected)
+```
+Checks that the priority of the opened email is not $expected
+```
+seeInEmailPriority($email, $expected)
+```
+Checks that the priority of $email is $expected
+```
+dontSeeInEmailPriority($email, $expected)
+```
+Checks that the priority of $email is not $expected
 
 ### To Do
 While this framework should be sufficient for most email testing scenarios, the remaining features need to be implemented
 * HTML and Plain Text content
 * Attachments
 * Priority
- 
+
 ### License
 Copyright (c) 2015 Eric Martel, http://github.com/ericmartel <emartel@gmail.com>
 

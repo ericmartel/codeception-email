@@ -83,9 +83,22 @@ trait EmailServiceProvider
    * @param mixed $email Email
    * @return string Sender
    */
-  protected function getSender($email)
+  protected function getEmailSender($email)
   {
-    $this->fail("Service Provider doesn't implement getSender");
+    $this->fail("Service Provider doesn't implement getEmailSender");
+  }
+
+  /**
+   * Get Email Reply To
+   *
+   * Returns the string containing the address to reply to
+   *
+   * @param mixed $email Email
+   * @return string ReplyTo
+   */
+  protected function getEmailReplyTo($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailReplyTo");
   }
 
   /**
@@ -138,5 +151,18 @@ trait EmailServiceProvider
   protected function getEmailRecipients($email)
   {
     $this->fail("Service Provider doesn't implement getEmailRecipients");
+  }
+
+  /**
+   * Get Email Priority
+   * 
+   * Returns the priority of the email
+   * 
+   * @param mixed $email Email
+   * @return string Priority
+   */
+  protected function getEmailPriority($email)
+  {
+    $this->fail("Service Provider doesn't implement getEmailPriority");
   }
 }
