@@ -168,6 +168,22 @@ dontSeeInEmailBCCField($email, $expected)
 Checks that the BCC field of $email does not contain $expected
 
 Warning: it is possible for an email to have its BCC field empty, it doesn't mean that another instance of the same email doesn't exist.
+```
+seeInOpenedEmailPriority($expected)
+```
+Checks that the priority of the opened email is $expected
+```
+dontSeeInOpenedEmailPriority($expected)
+```
+Checks that the priority of the opened email is not $expected
+```
+seeInEmailPriority($email, $expected)
+```
+Checks that the priority of $email is $expected
+```
+dontSeeInEmailPriority($email, $expected)
+```
+Checks that the priority of $email is not $expected
 
 ### Developing For New Testing Services
 A base trait defining the interface the test methods require is available in `\Codeception\Email\EmailServiceProvider`. All of these methods need to be overloaded in a new Service Provider.  They are protected as they are only used by the testing layer, not by the user himself.
@@ -211,22 +227,6 @@ Returns the string containing the persons included in the BCC field
 getEmailRecipients($email)
 ```
 Returns the string containing all of the recipients, such as To, CC and if provided BCC
-```
-seeInOpenedEmailPriority($expected)
-```
-Checks that the priority of the opened email is $expected
-```
-dontSeeInOpenedEmailPriority($expected)
-```
-Checks that the priority of the opened email is not $expected
-```
-seeInEmailPriority($email, $expected)
-```
-Checks that the priority of $email is $expected
-```
-dontSeeInEmailPriority($email, $expected)
-```
-Checks that the priority of $email is not $expected
 
 ### To Do
 While this framework should be sufficient for most email testing scenarios, the remaining features need to be implemented
