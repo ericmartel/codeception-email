@@ -227,6 +227,10 @@ Returns the string containing the persons included in the BCC field
 getEmailRecipients($email)
 ```
 Returns the string containing all of the recipients, such as To, CC and if provided BCC
+```
+grabBodyFromEmail
+```
+Returns the email body as string
 
 ### To Do
 While this framework should be sufficient for most email testing scenarios, the remaining features need to be implemented

@@ -561,4 +561,13 @@ trait TestsEmails
   {
     $this->assertNotContains($expected, $this->getEmailPriority($email));
   }
+
+    /**
+     * @return string Body
+     */
+    public function grabBodyFromEmail()
+    {
+        $email = $this->getOpenedEmail();
+        return $this->getDecodedEmailProperty($email, $email->Content->Body);
+    }
 };
