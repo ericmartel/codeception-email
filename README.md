@@ -231,6 +231,14 @@ Returns the string containing all of the recipients, such as To, CC and if provi
 grabBodyFromEmail
 ```
 Returns the email body as string
+```
+$email_body = $I->grabBodyFromEmail('text/html');
+$doc = new DOMDocument();
+$doc->loadHTML($email_body);
+$login = $doc->getElementById('login')->textContent;
+$password = $doc->getElementById('password')->textContent;
+```
+Fetch login & password from 'text/html' email MIME-part.
 
 ### To Do
 While this framework should be sufficient for most email testing scenarios, the remaining features need to be implemented
@@ -265,5 +273,5 @@ THE SOFTWARE.
    [MailHogModule]: http://github.com/ericmartel/codeception-email-mailhog
    [MailCatcherModule]: http://github.com/ericmartel/codeception-email-mailcatcher
    [MailtrapModule]: http://github.com/ericmartel/codeception-email-mailtrap
-   
+
 

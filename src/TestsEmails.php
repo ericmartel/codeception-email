@@ -563,11 +563,23 @@ trait TestsEmails
   }
 
     /**
+
+     * @param string $content_type_alternative      MIME-part Content-Type
      * @return string Body
      */
-    public function grabBodyFromEmail()
+    public function grabBodyFromEmail($content_type_alternative = null)
     {
         $email = $this->getOpenedEmail();
-        return $this->getDecodedEmailProperty($email, $email->Content->Body);
+
+        if( isset($content_type_alternative) ) {
+            foreach ($email->MIME->Parts as $part) {
+                if (!empty($part->Headers->{'Content-Type'}[0]) &&
+                    strpos($part->Headers->{'Content-Type'}[0], $content_type_alternative) !== false) {
+                    return $this->getDecodedEmailProperty($part, $part->Body);  //return first entry
+                }
+            }
+            return null;                                                        //not found
+        }
+        return $this->getDecodedEmailProperty($email, $email->Content->Body);   //return full email
     }
 };
